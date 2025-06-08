@@ -1,6 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
-using Unity.Cinemachine;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -50,7 +48,7 @@ public class PlayerController : MonoBehaviour
         // State Controller
         _stateController = GetComponent<StateController>();
         // Movement
-        _moveSpeed = 30f;
+        _moveSpeed = 40f;
         _moveKey = KeyCode.E;
         _playerRigidbody = GetComponent<Rigidbody>();
         _playerRigidbody.freezeRotation = true;
@@ -72,8 +70,8 @@ public class PlayerController : MonoBehaviour
 
         // Sliding
         _slideKey = KeyCode.Q;
-        _slideMultiplier = 2f;
-        _slideDrag = 2f;
+        _slideMultiplier = 1.3f;
+        _slideDrag = 2.2f;
 
     }
     private void Update()
