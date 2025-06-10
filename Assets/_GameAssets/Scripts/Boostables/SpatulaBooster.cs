@@ -1,0 +1,29 @@
+using UnityEngine;
+
+public class SpatulaBooster : MonoBehaviour, IBoostable
+{
+    [Header("References")]
+    [SerializeField] private Animator _spatulaAnimator;
+    [Header("Settings")]
+    [SerializeField] private float _jumpForce;
+
+    private bool _isActivated;
+    public void Boost(PlayerController playerController)
+    {
+        if (_isActivated) return;
+        PlayBoostAnimatipon();
+        Rigidbody playerRigidbody = playerController.GetPlayerRigidbody();
+        playerRigidbody.AddForce(transform.forward * _jumpForce, ForceMode.Impulse);
+        _isActivated = true;
+        Invoke(nameof(ResetBoost), 0.2f);
+    }
+    private void PlayBoostAnimatipon()
+    {
+        _spatulaAnimator.SetTrigger(Consts.OtherAnimations.IS_SPATULA_JUMPING);
+    }
+
+    private void ResetBoost()
+    {
+        _isActivated = false;
+    }
+}
