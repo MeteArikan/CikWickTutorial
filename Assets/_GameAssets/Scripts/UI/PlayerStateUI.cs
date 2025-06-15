@@ -2,13 +2,27 @@ using System;
 using UnityEngine.UI;
 using UnityEngine;
 using DG.Tweening;
+using System.Collections;
 
 public class PlayerStateUI : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private PlayerController _playerController;
+
+    // Left Side UI Elements
     [SerializeField] private RectTransform _playerWalkingTransform;
     [SerializeField] private RectTransform _playerSlidingTransform;
+
+    // Right Side UI Elements
+    [SerializeField] private RectTransform _boosterSpeedTransform;
+    [SerializeField] private RectTransform _boosterJumpTransform;
+    [SerializeField] private RectTransform _boosterSlowTransform;
+
+    [Header("Images")]
+    // [SerializeField] private Image _goldBoosterWheatImage;
+    [SerializeField] private Image _goldBoosterWheatImage;
+    [SerializeField] private Image _holyBoosterWheatImage;
+    [SerializeField] private Image _rottenBoosterWheatImage;
 
     [Header("Sprites")]
     [SerializeField] private Sprite _playerWalkingActiveSprite;
@@ -19,6 +33,14 @@ public class PlayerStateUI : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float _moveDuration;
     [SerializeField] private Ease _moveEase;
+
+
+    public RectTransform GetBoosterSpeedTransform() => _boosterSpeedTransform;
+    public RectTransform GetBoosterJumpTransform() => _boosterJumpTransform;
+    public RectTransform GetBoosterSlowTransform() => _boosterSlowTransform;
+    public Image GetGoldBoosterWheatImage() => _goldBoosterWheatImage;
+    public Image GetHolyBoosterWheatImage() => _holyBoosterWheatImage;
+    public Image GetRottenBoosterWheatImage() => _rottenBoosterWheatImage;
     private Image _playerWalkingImage;
     private Image _playerSlidingImage;
 
@@ -45,7 +67,7 @@ public class PlayerStateUI : MonoBehaviour
                 break;
             case PlayerState.SlideIdle:
             case PlayerState.Slide:
-                SetStateUserInterfaces(_playerWalkingPassiveSprite, _playerSlidingActiveSprite,_playerSlidingTransform,  _playerWalkingTransform);
+                SetStateUserInterfaces(_playerWalkingPassiveSprite, _playerSlidingActiveSprite, _playerSlidingTransform, _playerWalkingTransform);
                 break;
         }
     }
@@ -58,5 +80,26 @@ public class PlayerStateUI : MonoBehaviour
 
         activeTransform.DOAnchorPosX(-25f, _moveDuration).SetEase(_moveEase);
         passiveTransform.DOAnchorPosX(-90f, _moveDuration).SetEase(_moveEase);
+    }
+
+    private IEnumerator SetBoosterUI(RectTransform activeTransform, Image boosterImage, Image wheatImage,
+                                     Sprite activeSprite, Sprite passiveSprite, Sprite activeWheatSprite, Sprite passiveWheatSprite, float duration)
+    {
+        boosterImage.sprite = activeSprite;
+        wheatImage.sprite = activeWheatSprite;
+        activeTransform.DOAnchorPosX(25f, _moveDuration).SetEase(_moveEase);
+
+
+        yield return new WaitForSeconds(duration);
+
+        boosterImage.sprite = passiveSprite;
+        wheatImage.sprite = passiveWheatSprite;
+        activeTransform.DOAnchorPosX(90f, _moveDuration).SetEase(_moveEase);
+    }
+
+    public void PlayBoosterUIAnimations(RectTransform activeTransform, Image boosterImage, Image wheatImage,
+                                     Sprite activeSprite, Sprite passiveSprite, Sprite activeWheatSprite, Sprite passiveWheatSprite, float duration)
+    {
+        StartCoroutine(SetBoosterUI(activeTransform, boosterImage, wheatImage, activeSprite, passiveSprite, activeWheatSprite, passiveWheatSprite, duration));
     }
 }
