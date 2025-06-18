@@ -2944,6 +2944,7 @@ MonoBehaviour:
   _timerRotatableTransform: {fileID: 971634410}
   _timerText: {fileID: 786557054}
   _rotationDuration: 60
+  _rotationDurationTest: 0.14
   _rotationEase: 1
 --- !u!1 &1551465693
 GameObject:
