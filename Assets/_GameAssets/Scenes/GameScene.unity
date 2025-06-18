@@ -3328,6 +3328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 3
+  _playerHealthUI: {fileID: 1175595811}
 --- !u!1 &1862887741
 GameObject:
   m_ObjectHideFlags: 0
@@ -4449,6 +4450,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9001495795347025279, guid: 6436a0b417a794e9ab5f18e52268bfd9, type: 3}
+      propertyPath: _healthManager
+      value: 
+      objectReference: {fileID: 1837337794}
     - target: {fileID: 9001495795347025279, guid: 6436a0b417a794e9ab5f18e52268bfd9, type: 3}
       propertyPath: _playerStateUI
       value: 
