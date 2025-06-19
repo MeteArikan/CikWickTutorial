@@ -11,13 +11,13 @@ public class SpatulaBooster : MonoBehaviour, IBoostable
     public void Boost(PlayerController playerController)
     {
         if (_isActivated) return;
-        PlayBoostAnimatipon();
+        PlayBoostAnimation();
         Rigidbody playerRigidbody = playerController.GetPlayerRigidbody();
         playerRigidbody.AddForce(transform.forward * _jumpForce, ForceMode.Impulse);
         _isActivated = true;
         Invoke(nameof(ResetBoost), 0.2f);
     }
-    private void PlayBoostAnimatipon()
+    private void PlayBoostAnimation()
     {
         _spatulaAnimator.SetTrigger(Consts.OtherAnimations.IS_SPATULA_JUMPING);
     }

@@ -13,10 +13,14 @@ public class TimerUI : MonoBehaviour
     [SerializeField] private float _rotationDuration;
     [SerializeField] private Ease _rotationEase;
 
+    private float _elapsedTine;
 
 
-    private void Start() {
+
+    private void Start()
+    {
         PlayClockAnimation();
+        StartTimer();
     }
     private void PlayClockAnimation()
     {
@@ -24,6 +28,20 @@ public class TimerUI : MonoBehaviour
             .SetEase(_rotationEase)
             .SetLoops(-1, LoopType.Restart);
 
+    }
+    private void StartTimer()
+    {
+        _elapsedTine = 0f;
+        InvokeRepeating(nameof(UpdateTimerUI), 0f, 1f);
+    }
+
+    private void UpdateTimerUI()
+    {
+        _elapsedTine += 1f;
+        int minutes = Mathf.FloorToInt(_elapsedTine / 60f);
+        int seconds = Mathf.FloorToInt(_elapsedTine % 60f);
+
+        _timerText.text = $"{minutes:00}:{seconds:00}";
     }
 
 }
