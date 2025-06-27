@@ -17,6 +17,7 @@ public class TimerUI : MonoBehaviour
     private float _elapsedTine;
     private bool _isTimerRunning;
     private Tween _rotationTween;
+    private string _finalTime;
 
 
     private void Start()
@@ -31,16 +32,20 @@ public class TimerUI : MonoBehaviour
         switch (gameState)
         {
             case GameState.Pause:
-                PauseTimer();
+                StopTimer();
                 break;
-
             case GameState.Resume:
                 ResumeTimer();
+                break;
+            case GameState.GameOver:
+                FinishTimer();
                 break;
         }
     }
 
-    private void PauseTimer()
+
+
+    private void StopTimer()
     {
         _isTimerRunning = false;
         CancelInvoke(nameof(UpdateTimerUI));
@@ -55,17 +60,31 @@ public class TimerUI : MonoBehaviour
             _isTimerRunning = true;
             InvokeRepeating(nameof(UpdateTimerUI), 0f, 1f);
             _rotationTween.Play();
-            
+
         }
+    }
+
+    private void FinishTimer()
+    {
+        StopTimer();
+        _finalTime = GetFormattedElapsedTime();
+
+    }
+    public string GetFormattedElapsedTime()
+    {
+        int minutes = Mathf.FloorToInt(_elapsedTine / 60f);
+        int seconds = Mathf.FloorToInt(_elapsedTine % 60f);
+        return $"{minutes:00}:{seconds:00}";
+
     }
 
 
 
     private void PlayClockAnimation()
     {
-       _rotationTween = _timerRotatableTransform.DORotate(new Vector3(0f, 0f, -360f), _rotationDuration, RotateMode.FastBeyond360)
-            .SetEase(_rotationEase)
-            .SetLoops(-1, LoopType.Restart);
+        _rotationTween = _timerRotatableTransform.DORotate(new Vector3(0f, 0f, -360f), _rotationDuration, RotateMode.FastBeyond360)
+             .SetEase(_rotationEase)
+             .SetLoops(-1, LoopType.Restart);
 
     }
     private void StartTimer()
@@ -83,6 +102,11 @@ public class TimerUI : MonoBehaviour
         int minutes = Mathf.FloorToInt(_elapsedTine / 60f);
         int seconds = Mathf.FloorToInt(_elapsedTine % 60f);
         _timerText.text = $"{minutes:00}:{seconds:00}";
+    }
+
+    public string GetFinalTime()
+    {
+        return _finalTime;
     }
 
 }

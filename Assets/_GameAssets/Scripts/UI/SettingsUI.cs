@@ -50,7 +50,7 @@ public class SettingsUI : MonoBehaviour
 
     private void OnResumeButtonClicked()
     {
-        _blackBackgroundImage.DOFade(0.8f, _animationDuration).SetEase(Ease.Linear);
+        _blackBackgroundImage.DOFade(0f, _animationDuration).SetEase(Ease.Linear);
 
         _settingsPopupObject.transform.DOScale(0f, _animationDuration).SetEase(Ease.OutExpo).
         OnComplete(() =>
