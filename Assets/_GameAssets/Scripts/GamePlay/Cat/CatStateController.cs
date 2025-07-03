@@ -13,7 +13,7 @@ public class CatStateController : MonoBehaviour
         if (_currentCatState == newState) return;
         _currentCatState = newState;
     }
-    public CatState GetCatState()
+    public CatState GetCurrentState()
     {
         return _currentCatState;
     }

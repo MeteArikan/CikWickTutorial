@@ -8,8 +8,10 @@ public class GameManager : MonoBehaviour
     public event Action<GameState> OnGameStateChanged;
 
     [Header("References")]
+    [SerializeField] private CatController _catController;
     [SerializeField] private EggCounterUI _eggCounterUI;
     [SerializeField] private WinLoseUI _winLoseUI;
+    [SerializeField] private PlayerHealthUI _playerHealthUI;
 
 
     [Header("Settings")]
@@ -26,10 +28,11 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
-    private void Start() {
+    private void Start()
+    {
         HealthManager.Instance.OnGameLoseEvent += OnGameLoseHandler;
+        _catController.OnCatCaught += CatController_OnCatCaught;
     }
-
 
 
     private void OnEnable()
@@ -65,6 +68,13 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(OnGameLose());
     }
+
+    private void CatController_OnCatCaught()
+    {
+        _playerHealthUI.AnimateDamageForAll();
+        StartCoroutine(OnGameLose());
+    }
+
 
     public GameState GetCurrentGameState()
     {
