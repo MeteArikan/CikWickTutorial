@@ -19,13 +19,14 @@ public class CatController : MonoBehaviour
     [SerializeField] private int _maxDestinationAttempt = 10;
     [SerializeField] private float _chaseDistanceThreshold = 1.5f;
     [SerializeField] private float _chaseDistance = 2f;
+    [SerializeField] private bool _isChasing = true;
 
     private CatStateController _catStateController;
     private NavMeshAgent _catAgent;
 
     private Vector3 _initialPosition;
     private float _timer;
-    private bool _isChasing;
+    //private bool _isChasing;
     private bool _isWaiting;
 
 
@@ -56,7 +57,6 @@ public class CatController : MonoBehaviour
 
     private void SetChaseMovement()
     {
-        _isChasing = true;
         Vector3 directionToPlayer = (_playerTransform.position - transform.position).normalized;
         Vector3 offsetPosition = _playerTransform.position - directionToPlayer * _chaseDistanceThreshold;
         _catAgent.SetDestination(offsetPosition);

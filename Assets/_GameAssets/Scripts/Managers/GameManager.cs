@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        HealthManager.Instance.OnGameLoseEvent += OnGameLoseHandler;
+        HealthManager.Instance.OnGameLoseEvent += PlayGameOver;
         _catController.OnCatCaught += CatController_OnCatCaught;
     }
 
@@ -58,21 +58,21 @@ public class GameManager : MonoBehaviour
             
         }
     }
-    private IEnumerator OnGameLose()
+    private IEnumerator OnGameOver()
     {
         yield return new WaitForSeconds(_duration);
         ChangeGameState(GameState.GameOver);
         _winLoseUI.OnGameLose();
     }
-    private void OnGameLoseHandler()
+    private void PlayGameOver()
     {
-        StartCoroutine(OnGameLose());
+        StartCoroutine(OnGameOver());
     }
 
     private void CatController_OnCatCaught()
     {
         _playerHealthUI.AnimateDamageForAll();
-        StartCoroutine(OnGameLose());
+        StartCoroutine(OnGameOver());
     }
 
 
