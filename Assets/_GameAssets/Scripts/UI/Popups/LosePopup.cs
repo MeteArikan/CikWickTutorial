@@ -1,3 +1,4 @@
+using MaskTransitions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,16 +11,22 @@ public class LosePopup : MonoBehaviour
     [SerializeField] private Button _tryAgainButton;
     [SerializeField] private Button _mainMenuButton;
     [SerializeField] private TMP_Text _timerText;
-    
-        private void OnEnable()
+
+    private void OnEnable()
     {
         _timerText.text = _timerUI.GetFinalTime();
         _tryAgainButton.onClick.AddListener(OnTryAgainButtonClicked);
+        _mainMenuButton.onClick.AddListener(OnMenuButtonClicked);
+    }
+
+    private void OnMenuButtonClicked()
+    {
+        TransitionManager.Instance.LoadLevel(Consts.SceneNames.MENU_SCENE);
     }
 
     private void OnTryAgainButtonClicked()
     {
-        SceneManager.LoadScene(Consts.SceneNames.GAME_SCENE);
+        TransitionManager.Instance.LoadLevel(Consts.SceneNames.GAME_SCENE);
     }
 }
 

@@ -1,4 +1,5 @@
 using System;
+using MaskTransitions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,7 +18,7 @@ public class MenuControllerUI : MonoBehaviour
 
     private void OnPlayButtonClick()
     {
-        SceneManager.LoadScene(Consts.SceneNames.GAME_SCENE);
+        TransitionManager.Instance.LoadLevel(Consts.SceneNames.GAME_SCENE);
     }
 
     private void OnQuitButtonClick()
