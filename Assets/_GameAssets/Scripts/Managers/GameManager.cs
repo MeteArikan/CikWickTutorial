@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
     {
         _playerHealthUI.AnimateDamageForAll();
         StartCoroutine(OnGameOver());
+        CameraShake.Instance.ShakeCamera(1.5f, 2f, 0.5f);
     }
 
 

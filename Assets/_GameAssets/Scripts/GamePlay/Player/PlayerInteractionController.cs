@@ -17,6 +17,7 @@ public class PlayerInteractionController : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent<ICollectible>(out var collectible))
         {
+            CameraShake.Instance.ShakeCamera(0.5f, 0.5f);
             collectible.Collect();
         }
     }
@@ -31,6 +32,7 @@ public class PlayerInteractionController : MonoBehaviour
     private void OnParticleCollision(GameObject other) {
         if (other.gameObject.TryGetComponent<IDamageable>(out var damageable))
         {
+            CameraShake.Instance.ShakeCamera(1f, 0.5f);
             damageable.GiveDamage(_playerRigidbody, _playerVisualTransform);
         }
     }
