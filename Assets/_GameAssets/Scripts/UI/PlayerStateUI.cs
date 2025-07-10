@@ -3,13 +3,11 @@ using UnityEngine.UI;
 using UnityEngine;
 using DG.Tweening;
 using System.Collections;
-using UnityEngine.Playables;
 
 public class PlayerStateUI : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private PlayerController _playerController;
-    [SerializeField] private PlayableDirector _playableDirector;
 
     // Left Side UI Elements
     [SerializeField] private RectTransform _playerWalkingTransform;
@@ -56,12 +54,7 @@ public class PlayerStateUI : MonoBehaviour
     private void Start()
     {
         _playerController.OnPlayerStateChanged += PlayerController_OnPlayerStateChanged;
-        _playableDirector.stopped += OnTimelineFinished;
-    }
-
-    private void OnTimelineFinished(PlayableDirector director)
-    {
-         SetStateUserInterfaces(_playerWalkingActiveSprite, _playerSlidingPassiveSprite, _playerWalkingTransform, _playerSlidingTransform);
+        SetStateUserInterfaces(_playerWalkingActiveSprite, _playerSlidingPassiveSprite, _playerWalkingTransform, _playerSlidingTransform);
     }
 
     private void PlayerController_OnPlayerStateChanged(PlayerState playerState)
