@@ -644,6 +644,7 @@ MonoBehaviour:
   _playerController: {fileID: 1957239987}
   _playerWalkingTransform: {fileID: 1551465694}
   _playerSlidingTransform: {fileID: 1307339112}
+  _playableDirector: {fileID: 0}
   _boosterSpeedTransform: {fileID: 302971108}
   _boosterJumpTransform: {fileID: 1862887742}
   _boosterSlowTransform: {fileID: 1081339213}
@@ -1524,6 +1525,7 @@ GameObject:
   m_Component:
   - component: {fileID: 308289481}
   - component: {fileID: 308289482}
+  - component: {fileID: 308289483}
   m_Layer: 0
   m_Name: TimelineManager
   m_TagString: Untagged
@@ -1567,6 +1569,18 @@ PlayableDirector:
     m_References:
     - b9c4faf04a4684140ac4b803d44f377b: {fileID: 642291149}
     - 3d97dce95722a4244984fcb5d356592f: {fileID: 432745070}
+--- !u!114 &308289483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308289480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a4674d4850d4777bcb05fb686a56b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &322715470
 GameObject:
   m_ObjectHideFlags: 0
@@ -2591,8 +2605,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Priority:
-    Enabled: 0
-    m_Value: 0
+    Enabled: 1
+    m_Value: 1
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
@@ -3616,7 +3630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Priority:
-    Enabled: 0
+    Enabled: 1
     m_Value: 0
   OutputChannel: 1
   StandbyUpdate: 2

@@ -22,8 +22,7 @@ public class TimerUI : MonoBehaviour
 
     private void Start()
     {
-        PlayClockAnimation();
-        StartTimer();
+      
         GameManager.Instance.OnGameStateChanged += GameManager_OnGameStateChanged;
     }
 
@@ -31,6 +30,10 @@ public class TimerUI : MonoBehaviour
     {
         switch (gameState)
         {
+            case GameState.Play:
+                PlayClockAnimation();
+                StartTimer();
+                break;
             case GameState.Pause:
                 StopTimer();
                 break;
