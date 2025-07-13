@@ -18,12 +18,19 @@ public class SettingsUI : MonoBehaviour
     [SerializeField] private Button _resumeButton;
     [SerializeField] private Button _mainMenuButton;
 
+    [Header("Sprites")]
+    [SerializeField] private Sprite _musicActiveSprite;
+    [SerializeField] private Sprite _musicPassiveSprite;
+    [SerializeField] private Sprite _soundActiveSprite;
+    [SerializeField] private Sprite _soundPassiveSprite;
+    
+
     [Header("Settings")]
     [SerializeField] private float _animationDuration;
 
-
-
     private Image _blackBackgroundImage;
+    private bool _isMusicActive = true;
+    private bool _isSoundActive = true;
 
     private void Awake()
     {
@@ -31,9 +38,29 @@ public class SettingsUI : MonoBehaviour
         _settingsPopupObject.transform.localScale = Vector3.zero;
 
         _settingsButton.onClick.AddListener(OnSettingsButtonClicked);
+
         _resumeButton.onClick.AddListener(OnResumeButtonClicked);
         _mainMenuButton.onClick.AddListener(OnMenuButtonClicked);
 
+        _musicButton.onClick.AddListener(OnMusicButtonClicked);
+        _soundButton.onClick.AddListener(OnSoundButtonClicked);
+
+    }
+
+    private void OnSoundButtonClicked()
+    {
+        AudioManager.Instance.Play(SoundType.ButtonClickSound);
+        _isSoundActive = !_isSoundActive;
+        _soundButton.image.sprite = _isSoundActive ? _soundActiveSprite : _soundPassiveSprite;
+        AudioManager.Instance.SetSoundEffectsMute(!_isSoundActive);
+    }
+
+    private void OnMusicButtonClicked()
+    {
+        AudioManager.Instance.Play(SoundType.ButtonClickSound);
+        _isMusicActive = !_isMusicActive;
+        _musicButton.image.sprite = _isMusicActive ? _musicActiveSprite : _musicPassiveSprite;
+        BackgroundMusic.Instance.SetMusicMute(!_isMusicActive);
     }
 
     private void OnMenuButtonClicked()
