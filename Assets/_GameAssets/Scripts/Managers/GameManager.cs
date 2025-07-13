@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         ChangeGameState(GameState.CutScene);
+        BackgroundMusic.Instance.PlayBackgroundMusic(true);
     }
     public void ChangeGameState(GameState gameState)
     {
@@ -72,6 +73,7 @@ public class GameManager : MonoBehaviour
     private void CatController_OnCatCaught()
     {
         _playerHealthUI.AnimateDamageForAll();
+        AudioManager.Instance.Play(SoundType.CatSound);
         StartCoroutine(OnGameOver());
         CameraShake.Instance.ShakeCamera(1.5f, 2f, 0.5f);
     }

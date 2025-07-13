@@ -7,6 +7,7 @@ public class FireDamageable : MonoBehaviour, IDamageable
     {
         playerRigidbody.AddForce(-playerVisualTransform.forward * _force, ForceMode.Impulse);
         HealthManager.Instance.Damage(1);
+        AudioManager.Instance.Play(SoundType.ChickSound);
         Destroy(gameObject);
     }
 }

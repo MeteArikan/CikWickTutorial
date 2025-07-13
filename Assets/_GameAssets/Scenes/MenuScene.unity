@@ -546,6 +546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 492747562}
   - component: {fileID: 492747565}
+  - component: {fileID: 492747567}
   - component: {fileID: 492747564}
   - component: {fileID: 492747563}
   - component: {fileID: 492747566}
@@ -680,6 +681,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &492747567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492747561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f5ce0e28cc04c1f958e4e902bbfc31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &641436179
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,6 +703,7 @@ GameObject:
   m_Component:
   - component: {fileID: 641436180}
   - component: {fileID: 641436183}
+  - component: {fileID: 641436185}
   - component: {fileID: 641436182}
   - component: {fileID: 641436181}
   - component: {fileID: 641436184}
@@ -824,6 +838,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &641436185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641436179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f5ce0e28cc04c1f958e4e902bbfc31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &753924379
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,6 +860,7 @@ GameObject:
   m_Component:
   - component: {fileID: 753924380}
   - component: {fileID: 753924383}
+  - component: {fileID: 753924385}
   - component: {fileID: 753924382}
   - component: {fileID: 753924381}
   - component: {fileID: 753924384}
@@ -968,6 +995,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &753924385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753924379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f5ce0e28cc04c1f958e4e902bbfc31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1246137856
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,6 +1436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1692360044}
   - component: {fileID: 1692360047}
+  - component: {fileID: 1692360049}
   - component: {fileID: 1692360046}
   - component: {fileID: 1692360045}
   - component: {fileID: 1692360048}
@@ -1531,6 +1571,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1692360049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692360043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f5ce0e28cc04c1f958e4e902bbfc31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1729132671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2088,6 +2140,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3040819809967943052, guid: 194007a6865a44627874a83b44053866, type: 3}
+      propertyPath: Sounds.Array.data[5].SoundType
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040819809967943052, guid: 194007a6865a44627874a83b44053866, type: 3}
+      propertyPath: Sounds.Array.data[6].SoundType
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040819809967943052, guid: 194007a6865a44627874a83b44053866, type: 3}
+      propertyPath: Sounds.Array.data[8].SoundType
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040819809967943052, guid: 194007a6865a44627874a83b44053866, type: 3}
+      propertyPath: Sounds.Array.data[9].SoundType
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040819809967943052, guid: 194007a6865a44627874a83b44053866, type: 3}
+      propertyPath: Sounds.Array.data[10].SoundType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040819809967943052, guid: 194007a6865a44627874a83b44053866, type: 3}
+      propertyPath: Sounds.Array.data[11].AudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c7e903128a1d45d44bf55a62903e84c2, type: 3}
+    - target: {fileID: 3040819809967943052, guid: 194007a6865a44627874a83b44053866, type: 3}
+      propertyPath: Sounds.Array.data[11].SoundType
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3841952248352232408, guid: 194007a6865a44627874a83b44053866, type: 3}
       propertyPath: m_Name
       value: AudioManager
