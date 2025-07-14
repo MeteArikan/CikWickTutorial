@@ -7486,6 +7486,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1397252454}
     m_Modifications:
+    - target: {fileID: 3040819809967943052, guid: 194007a6865a44627874a83b44053866, type: 3}
+      propertyPath: Sounds.Array.data[5].SoundType
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040819809967943052, guid: 194007a6865a44627874a83b44053866, type: 3}
+      propertyPath: Sounds.Array.data[6].SoundType
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040819809967943052, guid: 194007a6865a44627874a83b44053866, type: 3}
+      propertyPath: Sounds.Array.data[8].SoundType
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040819809967943052, guid: 194007a6865a44627874a83b44053866, type: 3}
+      propertyPath: Sounds.Array.data[9].SoundType
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040819809967943052, guid: 194007a6865a44627874a83b44053866, type: 3}
+      propertyPath: Sounds.Array.data[10].SoundType
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3841952248352232408, guid: 194007a6865a44627874a83b44053866, type: 3}
       propertyPath: m_Name
       value: AudioManager

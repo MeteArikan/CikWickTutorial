@@ -44,6 +44,18 @@ public class CatController : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.GetCurrentGameState() != GameState.Play
+        && GameManager.Instance.GetCurrentGameState() != GameState.Resume
+        && GameManager.Instance.GetCurrentGameState() != GameState.CutScene)
+        {
+            // If the game is not in play or resume state, do not update the cat's movement
+            _catAgent.ResetPath();
+            _catAgent.speed = 0f;
+           // _catStateController.ChangeState(CatState.Idle);
+
+            return;
+        }
+
         if (_playerController.CanCatChase())
         {
             SetChaseMovement();
